@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "skills": {
+    "docker-build-strategies": {
+      "source": "docker/skills",
+      "sourceType": "github",
+      "skillPath": "skills/docker-build-strategies/SKILL.md",
+      "computedHash": "e6a297d613873cf74b030655ee8405ca4434980cfb0dfd412ac5aa4e213d3d5c"
+    },
+    "docker-compose-patterns": {
+      "source": "docker/skills",
+      "sourceType": "github",
+      "skillPath": "skills/docker-compose-patterns/SKILL.md",
+      "computedHash": "391f366bb0e60f5c7c48ecc814b917e7dae797edbb58625d228cb951d7a538ee"
+    },
+    "docker-project-foundations": {
+      "source": "docker/skills",
+      "sourceType": "github",
+      "skillPath": "skills/docker-project-foundations/SKILL.md",
+      "computedHash": "6b2334b2c24910d177e1f80a0cc1f5135f2a9b33b722673873435736de36128f"
+    },
+    "oci": {
+      "source": "oracle/skills",
+      "sourceType": "github",
+      "skillPath": "oci/SKILL.md",
+      "computedHash": "45bfb6f771d05e1b3b78ac0142f0ee2cf89dc52e384f9e2bc15077b8e0161663"
+    },
+    "pydantic": {
+      "source": "pydantic/skills",
+      "sourceType": "github",
+      "skillPath": "skills/pydantic/SKILL.md",
+      "computedHash": "65f68dbab0f7e60bfd26998350d674a104848daf23311067e0829758a7cf6f91"
+    },
+    "searxng-search": {
+      "source": "ypares/agent-skills",
+      "sourceType": "github",
+      "skillPath": "searxng-search/SKILL.md",
+      "computedHash": "f794bfa74525bd2c5a00e72c306ffcaef9856c5062565f20eea6ff9e527d8e8f"
+    }
+  }
+}

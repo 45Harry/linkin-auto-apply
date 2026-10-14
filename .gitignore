@@ -1,0 +1,23 @@
+# secrets and local state
+.env
+.env.*
+!.env.example
+data/
+*.sqlite3
+*.sqlite3-wal
+*.sqlite3-shm
+
+# python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.eggs/
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+
+# os
+.DS_Store

@@ -1,0 +1,60 @@
+name: jobbot
+
+services:
+  app:
+    build:
+      context: .
+    image: jobbot:0.1.0
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - ./data:/data
+    networks:
+      - internal
+    depends_on:
+      ollama:
+        condition: service_healthy
+      searxng:
+        condition: service_healthy
+
+  ollama:
+    image: ollama/ollama:0.40.4
+    restart: unless-stopped
+    environment:
+      OLLAMA_KEEP_ALIVE: "-1"
+    volumes:
+      - ollama-data:/root/.ollama
+    networks:
+      - internal
+    healthcheck:
+      test: ["CMD-SHELL", "ollama list >/dev/null 2>&1 || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+  searxng:
+    image: searxng/searxng:2026.10.13-22c64b8d3
+    restart: unless-stopped
+    environment:
+      SEARXNG_BASE_URL: http://searxng:8080/
+    volumes:
+      - ./docker/searxng/settings.yml:/etc/searxng/settings.yml:ro
+      - searxng-data:/var/cache/searxng
+    networks:
+      - internal
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:8080/healthz >/dev/null 2>&1 || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+volumes:
+  ollama-data:
+  searxng-data:
+
+networks:
+  internal:
+    driver: bridge
